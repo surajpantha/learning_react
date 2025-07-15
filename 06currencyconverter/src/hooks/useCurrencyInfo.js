@@ -8,9 +8,9 @@ function useCurrencyInfo(currency) {
                 const response = await fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json
 `);
                 const result = await response.json();
-                // console.log(result)
+              
                 setData(result[currency])
-
+               
 
 
             }
@@ -23,6 +23,7 @@ function useCurrencyInfo(currency) {
         }
         fetchCurrencyData()
     }, [currency]);
+
     return data;
 }
 
