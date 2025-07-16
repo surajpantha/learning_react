@@ -8,18 +8,19 @@ import Profile from './components/Profile'
 
 function App() {
 
-// const {user,setUser}=useContext(UserContext)
+  // const {user,setUser}=useContext(UserContext)
   return (
-    <><UserContextProvider>
+    <>
+      <UserContextProvider>
 
-    
-    
- <Login/>
 
- <Profile/>
-  
-     </UserContextProvider>
-      
+
+        <Login />
+
+        <Profile />
+
+      </UserContextProvider>
+
     </>
   )
 }
