@@ -81,7 +81,7 @@ export class Service {
         }
     }
 
- async uploadFile(file){
+    async uploadFile(file) {
         try {
             return await this.bucket.createFile(config.appWriteBucketId,
                 ID.unique(),
@@ -93,7 +93,7 @@ export class Service {
     }
 
 
-    async deleteFile(fileId){
+    async deleteFile(fileId) {
         try {
             await this.bucket.deleteFile(
                 config.appWriteBucketId,
@@ -105,10 +105,15 @@ export class Service {
         }
     }
 
-    getFilePreview(fileId){
-        return this.bucket.getFilePreview(config.appWriteBucketId,fileId)
+    getFilePreview(fileId) {
+        return this.bucket.getFilePreview(config.appWriteBucketId, fileId)
     }
 }
 
 const service = new Service()
-export default Service 
+export default Service
+
+/* 
+if i am exporting something by default then while importing i can import it by using anyname since i am exporting only one default fxn from this file so react knows under the hood which function i am mentioning about and i can only export one function by default per file and if i want to name my imports as per my wish for multiple exports too then i can use :
+ import { AuthService as MyAuth } from './services';
+ */
