@@ -111,7 +111,7 @@ export class Service {
 }
 
 const service = new Service()
-export default Service
+export default service
 
 /* 
 if i am exporting something by default then while importing i can import it by using anyname since i am exporting only one default fxn from this file so react knows under the hood which function i am mentioning about and i can only export one function by default per file and if i want to name my imports as per my wish for multiple exports too then i can use :
