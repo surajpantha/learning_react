@@ -1,5 +1,7 @@
 import config from "../conf/config";
 import { Client, ID, Databases, Storage, Query } from "appwrite";
+import authService from "./auth";
+
 
 export class Service {
     client = new Client()
@@ -12,7 +14,8 @@ export class Service {
         this.databases = new Databases(this.client)
         this.bucket = new Storage(this.client)
     }
-    async createPost({ title, slug, featuredImage, status, userId }) {
+    async createPost({ title, slug, featuredImage, status, userId, content }) {
+       
         try {
             return await this.databases.createDocument(config.appWriteDatabaseId, config.appWriteCollectionId, slug, {
                 title,
@@ -20,13 +23,14 @@ export class Service {
                 featuredImage,
                 status,
                 userId
-            })
+            }
+        )
 
         } catch (error) {
-            console.log(`error:${error}`)
+            console.log(`error:${error.message}`)
         }
     }
-    async updatePost(slug, { title, featuredImage, status }) {
+    async updatePost(slug, { title, featuredImage, status,content }) {
         try {
             return this.databases.updateDocument(
                 config.appWriteDatabaseId,
@@ -58,7 +62,7 @@ export class Service {
 
     async getPost(slug) {
         try {
-            return await this.databases.deleteDocument(
+            return await this.databases.getDocument(
                 config.appWriteDatabaseId,
                 config.appWriteCollectionId,
                 slug
@@ -105,8 +109,8 @@ export class Service {
         }
     }
 
-    getFilePreview(fileId) {
-        return this.bucket.getFilePreview(config.appWriteBucketId, fileId)
+    getFileView(fileId) {
+        return this.bucket.getFileView(config.appWriteBucketId, fileId)
     }
 }
 

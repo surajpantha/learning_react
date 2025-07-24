@@ -9,11 +9,11 @@ function EditPost() {
     const navigate=useNavigate()
     useEffect(() => {
     if(slug){
-        appWriteService.getPost(slug.then((post)=>{
+        appWriteService.getPost(slug).then((post)=>{
             if(post){
                 setPosts(post)
             }
-        }))
+        })
     }else{
         navigate('/')
     }

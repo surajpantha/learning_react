@@ -8,7 +8,7 @@ import Home from './pages/Home.jsx'
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter, Route, createRoutesFromElements } from 'react-router-dom'
 import { AuthLayout,Login,Signup } from './components/index.js'
-import AllPosts from './pages/AllPost.jsx'
+import AllPost from './pages/AllPost.jsx'
 import AddPost from './pages/AddPost.jsx'
 import EditPost from './pages/EditPost.jsx'
 import Post from './pages/Post.jsx'
@@ -100,10 +100,10 @@ const router = createBrowserRouter(
 
       {/* Protected Routes */}
       <Route
-        path="all-posts"
+        path="all-post"
         element={
           <AuthLayout authentication={true}>
-            <AllPosts />
+            <AllPost />
           </AuthLayout>
         }
       />

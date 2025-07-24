@@ -13,13 +13,14 @@ function Login() {
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
-    const login = async () => {
+    const login = async (data) => {
         setError("")
         try {
             const session = await authService.login(data)
             if (session) {
                 const userData = await authService.getCurrentUser()
                 if (userData) {
+                     console.log(userData)
                     dispatch(authLogin(userData))
                     navigate("/")
 
@@ -77,7 +78,7 @@ function Login() {
                         
                         />
                         <Button 
-                        type="submit">Sign in</Button>
+                        type="submit">Log in</Button>
 
                     </div>
                   </form>

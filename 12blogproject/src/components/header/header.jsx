@@ -26,12 +26,12 @@ export default function Header() {
         },
         {
             name: 'All Posts',
-            slug: "/all-posts",
+            slug: "/all-post",
             active: authStatus
         },
         {
             name: 'Add Posts',
-            slug: "/add-posts",
+            slug: "/add-post",
             active: true
         },
     ]
